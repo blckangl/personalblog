@@ -1,6 +1,7 @@
 import {Component, OnDestroy, OnInit} from '@angular/core';
 import {ActivatedRoute, Params, Router} from '@angular/router';
 import {Article} from '../../shared/article.model';
+import {MatSnackBar} from '@angular/material/snack-bar';
 
 @Component({
   selector: 'app-blog-page',
@@ -18,7 +19,7 @@ export class BlogPageComponent implements OnInit, OnDestroy {
     {id: 4, title: 'test4', text: 'TEST4 ARTICLE CONTENT'},
   ];
 
-  constructor(private router: Router, private activatedRouter: ActivatedRoute) {
+  constructor(private router: Router, private activatedRouter: ActivatedRoute, private snackBar: MatSnackBar) {
   }
 
   ngOnDestroy(): void {
@@ -29,10 +30,23 @@ export class BlogPageComponent implements OnInit, OnDestroy {
   }
 
 
-  addArticle(article: Article) : void {
+  addArticle(article: Article): void {
     this.id++;
     article.id = this.id;
     this.articles.push(article);
     console.log(article);
+  }
+
+  removeArticle(id: number): void {
+    const index = this.articles.findIndex(x => {
+      return x.id === id;
+    });
+
+    this.articles.splice(index, 1);
+    this.openSnackBar('Article ' + id + ' is Removed.');
+  }
+
+  openSnackBar(message: string): void {
+    this.snackBar.open(message);
   }
 }

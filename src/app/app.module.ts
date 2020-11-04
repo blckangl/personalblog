@@ -19,6 +19,8 @@ import {MatCardModule} from '@angular/material/card';
 import { ArticleAddComponent } from './components/article-add/article-add.component';
 import {MatInputModule} from '@angular/material/input';
 import {FormsModule} from '@angular/forms';
+import {MatSnackBarModule} from '@angular/material/snack-bar';
+import { NotFoundPageComponent } from './pages/not-found-page/not-found-page.component';
 
 @NgModule({
   declarations: [
@@ -30,7 +32,8 @@ import {FormsModule} from '@angular/forms';
     MenuDirective,
     HeaderComponent,
     FooterComponent,
-    ArticleAddComponent],
+    ArticleAddComponent,
+    NotFoundPageComponent],
   imports: [
     BrowserModule,
     AppRoutingModule,
@@ -40,7 +43,8 @@ import {FormsModule} from '@angular/forms';
     MatButtonModule,
     MatCardModule,
     MatInputModule,
-    FormsModule
+    FormsModule,
+    MatSnackBarModule
   ],
   providers: [],
   bootstrap: [AppComponent]
