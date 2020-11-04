@@ -1,11 +1,9 @@
-<div>
-  id is {{id}}
-</div>
-<div>
-  limit is {{limit}}
-</div>
-<button (click)="goBlog('6')" class="btn"> Go Blog with 6</button>
+<app-article-add (onArticleAdd)="addArticle($event)"></app-article-add>
 
-<app-article></app-article>
-<app-article></app-article>
-<app-article></app-article>
+<div class="container">
+  <div class="row">
+    <div *ngFor="let article of articles" class="col-6 mt-2">
+      <app-article [article]="article"></app-article>
+    </div>
+  </div>
+</div>

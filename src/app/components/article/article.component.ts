@@ -1,4 +1,5 @@
-import { Component, OnInit } from '@angular/core';
+import {Component, Input, OnInit} from '@angular/core';
+import {Article} from '../../shared/article.model';
 
 @Component({
   selector: 'app-article',
@@ -7,7 +8,10 @@ import { Component, OnInit } from '@angular/core';
 })
 export class ArticleComponent implements OnInit {
 
-  constructor() { }
+  @Input('article') article: Article;
+
+  constructor() {
+  }
 
   ngOnInit(): void {
   }

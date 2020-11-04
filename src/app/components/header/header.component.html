@@ -1,0 +1,12 @@
+<mat-toolbar color="primary">
+  <mat-toolbar-row>
+    <button mat-button>Home</button>
+    <button mat-button>Blog</button>
+    <span class="spacer"></span>
+    <button mat-button [matMenuTriggerFor]="menu">Menu</button>
+    <mat-menu #menu="matMenu">
+      <button mat-menu-item>Dashboard</button>
+      <button mat-menu-item>Logout</button>
+    </mat-menu>
+  </mat-toolbar-row>
+</mat-toolbar>

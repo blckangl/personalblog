@@ -14,7 +14,4 @@ export class HomePageComponent implements OnInit {
   ngOnInit(): void {
   }
 
-  goToBlog(numb: string): void {
-    this.router.navigate(['/blog', numb], {queryParams: {limit: 20}});
-  }
 }

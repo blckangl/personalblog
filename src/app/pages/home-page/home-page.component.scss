@@ -1,0 +1,16 @@
+section:nth-of-type(even){
+  background-color:#212121 ;
+  color: white;
+  padding: 16px;
+}
+section:nth-of-type(odd){
+  background-color:white ;
+  color: black;
+  padding: 16px;
+
+}
+
+section p{
+  text-align: justify;
+}
+

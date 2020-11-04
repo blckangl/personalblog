@@ -1,5 +1,6 @@
 import {Component, OnDestroy, OnInit} from '@angular/core';
 import {ActivatedRoute, Params, Router} from '@angular/router';
+import {Article} from '../../shared/article.model';
 
 @Component({
   selector: 'app-blog-page',
@@ -8,33 +9,30 @@ import {ActivatedRoute, Params, Router} from '@angular/router';
 })
 export class BlogPageComponent implements OnInit, OnDestroy {
 
-  id: string;
-  limit: number;
+  private id = 4;
 
-  paramsSubscription: any;
+  public articles: Article[] = [
+    {id: 1, title: 'test', text: 'TEST ARTICLE CONTENT'},
+    {id: 2, title: 'test2', text: 'TEST2 ARTICLE CONTENT'},
+    {id: 3, title: 'test3', text: 'TEST3 ARTICLE CONTENT'},
+    {id: 4, title: 'test4', text: 'TEST4 ARTICLE CONTENT'},
+  ];
 
   constructor(private router: Router, private activatedRouter: ActivatedRoute) {
   }
 
   ngOnDestroy(): void {
-    this.paramsSubscription.unsubscribe();
   }
 
   ngOnInit(): void {
-    console.log(this.activatedRouter);
-    this.id = this.activatedRouter.snapshot.params.ref;
-    this.limit = this.activatedRouter.snapshot.queryParams.limit;
-    this.paramsSubscription = this.activatedRouter.params.subscribe((para: Params) => {
-      this.id = para.ref;
-    });
+
   }
 
-  goHome(): void {
-    this.router.navigate(['/home']);
-  }
 
-  goBlog(s: string) {
-    this.router.navigate(['/blog', s]);
+  addArticle(article: Article) : void {
+    this.id++;
+    article.id = this.id;
+    this.articles.push(article);
+    console.log(article);
   }
-
 }

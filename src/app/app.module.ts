@@ -6,10 +6,19 @@ import { AppComponent } from './app.component';
 import { HomePageComponent } from './pages/home-page/home-page.component';
 import { BlogPageComponent } from './pages/blog-page/blog-page.component';
 import { DashboardPageComponent } from './pages/dashboard-page/dashboard-page.component';
-import { MenuComponent } from './components/menu/menu.component';
 import { ArticleComponent } from './components/article/article.component';
 import { MenuDirective } from './shared/menu.directive';
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+import { HeaderComponent } from './components/header/header.component';
+import { FooterComponent } from './components/footer/footer.component';
+import {MatToolbarModule} from '@angular/material/toolbar';
+import {MatMenuModule} from '@angular/material/menu';
 
+import {MatButtonModule} from '@angular/material/button';
+import {MatCardModule} from '@angular/material/card';
+import { ArticleAddComponent } from './components/article-add/article-add.component';
+import {MatInputModule} from '@angular/material/input';
+import {FormsModule} from '@angular/forms';
 
 @NgModule({
   declarations: [
@@ -17,12 +26,21 @@ import { MenuDirective } from './shared/menu.directive';
     HomePageComponent,
     BlogPageComponent,
     DashboardPageComponent,
-    MenuComponent,
     ArticleComponent,
-    MenuDirective],
+    MenuDirective,
+    HeaderComponent,
+    FooterComponent,
+    ArticleAddComponent],
   imports: [
     BrowserModule,
-    AppRoutingModule
+    AppRoutingModule,
+    BrowserAnimationsModule,
+    MatToolbarModule,
+    MatMenuModule,
+    MatButtonModule,
+    MatCardModule,
+    MatInputModule,
+    FormsModule
   ],
   providers: [],
   bootstrap: [AppComponent]
