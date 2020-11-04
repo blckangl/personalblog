@@ -1,18 +1,19 @@
 import {Component, OnInit, Output, EventEmitter} from '@angular/core';
 import {Article} from '../../shared/article.model';
+import {ArticlesService} from '../../shared/articles.service';
 
 @Component({
   selector: 'app-article-add',
   templateUrl: './article-add.component.html',
-  styleUrls: ['./article-add.component.scss']
+  styleUrls: ['./article-add.component.scss'],
+  providers: []
 })
 export class ArticleAddComponent implements OnInit {
 
-  @Output('onArticleAdd') articleAdd = new EventEmitter<Article>();
   title: string;
   text: string;
 
-  constructor() {
+  constructor(private articleService: ArticlesService) {
   }
 
   ngOnInit(): void {
@@ -22,6 +23,9 @@ export class ArticleAddComponent implements OnInit {
     const article = new Article();
     article.text = this.text;
     article.title = this.title;
-    this.articleAdd.emit(article);
+
+    this.articleService.AddArticle(article);
+    console.log('Article Added');
+
   }
 }

@@ -1,23 +1,25 @@
 import {Component, Input, OnInit, Output, EventEmitter} from '@angular/core';
 import {Article} from '../../shared/article.model';
+import {ArticlesService} from '../../shared/articles.service';
 
 @Component({
   selector: 'app-article',
   templateUrl: './article.component.html',
-  styleUrls: ['./article.component.scss']
+  styleUrls: ['./article.component.scss'],
+  providers: []
 })
 export class ArticleComponent implements OnInit {
 
   @Input('article') article: Article;
-  @Output('onRemove') removeEvent = new EventEmitter<number>();
 
-  constructor() {
+  constructor(private articleService: ArticlesService) {
   }
 
   ngOnInit(): void {
   }
 
   removeArticle(): void {
-    this.removeEvent.emit(this.article.id);
+    this.articleService.RemoveArticle(this.article.id);
+    console.log('Article Removed');
   }
 }

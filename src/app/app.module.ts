@@ -21,6 +21,7 @@ import {MatInputModule} from '@angular/material/input';
 import {FormsModule} from '@angular/forms';
 import {MatSnackBarModule} from '@angular/material/snack-bar';
 import { NotFoundPageComponent } from './pages/not-found-page/not-found-page.component';
+import {ArticlesService} from './shared/articles.service';
 
 @NgModule({
   declarations: [
@@ -46,7 +47,7 @@ import { NotFoundPageComponent } from './pages/not-found-page/not-found-page.com
     FormsModule,
     MatSnackBarModule
   ],
-  providers: [],
+  providers: [ArticlesService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
