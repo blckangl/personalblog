@@ -1,5 +1,7 @@
 export class Article {
-  id: number;
-  title: string;
+  articleId: number;
+  name: string;
   text: string;
+  image: string;
+
 }

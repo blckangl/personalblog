@@ -22,6 +22,7 @@ import {FormsModule} from '@angular/forms';
 import {MatSnackBarModule} from '@angular/material/snack-bar';
 import { NotFoundPageComponent } from './pages/not-found-page/not-found-page.component';
 import {ArticlesService} from './shared/articles.service';
+import {HttpClientModule} from '@angular/common/http';
 
 @NgModule({
   declarations: [
@@ -37,6 +38,7 @@ import {ArticlesService} from './shared/articles.service';
     NotFoundPageComponent],
   imports: [
     BrowserModule,
+    HttpClientModule,
     AppRoutingModule,
     BrowserAnimationsModule,
     MatToolbarModule,
